@@ -10,7 +10,7 @@ import (
 // Set<%= queryName.UpperCamel %>Result saves the <%= queryName.UpperCamel %> result
 func (k Keeper) Set<%= queryName.UpperCamel %>Result(ctx sdk.Context, requestID types.OracleRequestID, result types.<%= queryName.UpperCamel %>Result) {
 	store := ctx.KVStore(k.storeKey)
-	store.Set(types.<%= queryName.UpperCamel %>ResultStoreKey(requestID), k.cdc.Mustmarshal(&result))
+	store.Set(types.<%= queryName.UpperCamel %>ResultStoreKey(requestID), k.cdc.MustMarshal(&result))
 }
 
 // Get<%= queryName.UpperCamel %>Result returns the <%= queryName.UpperCamel %> by requestId

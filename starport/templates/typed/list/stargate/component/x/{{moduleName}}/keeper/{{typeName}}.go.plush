@@ -44,7 +44,7 @@ func (k Keeper) Append<%= TypeName.UpperCamel %>(
     <%= TypeName.LowerCamel %>.Id = count
 
     store :=  prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.<%= TypeName.UpperCamel %>Key))
-    appendedValue := k.cdc.Mustmarshal(&<%= TypeName.LowerCamel %>)
+    appendedValue := k.cdc.MustMarshal(&<%= TypeName.LowerCamel %>)
     store.Set(Get<%= TypeName.UpperCamel %>IDBytes(<%= TypeName.LowerCamel %>.Id), appendedValue)
 
     // Update <%= TypeName.LowerCamel %> count
@@ -56,7 +56,7 @@ func (k Keeper) Append<%= TypeName.UpperCamel %>(
 // Set<%= TypeName.UpperCamel %> set a specific <%= TypeName.LowerCamel %> in the store
 func (k Keeper) Set<%= TypeName.UpperCamel %>(ctx sdk.Context, <%= TypeName.LowerCamel %> types.<%= TypeName.UpperCamel %>) {
 	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.<%= TypeName.UpperCamel %>Key))
-	b := k.cdc.Mustmarshal(&<%= TypeName.LowerCamel %>)
+	b := k.cdc.MustMarshal(&<%= TypeName.LowerCamel %>)
 	store.Set(Get<%= TypeName.UpperCamel %>IDBytes(<%= TypeName.LowerCamel %>.Id), b)
 }
 
