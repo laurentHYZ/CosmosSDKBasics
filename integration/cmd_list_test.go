@@ -1,4 +1,4 @@
-// +build !relayer
+//go:build !relayer
 
 package integration_test
 
